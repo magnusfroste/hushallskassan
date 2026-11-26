@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Hushållskassan – budget och ränta, samhällskunskap åk 7–9</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Träna privatekonomi i samhällskunskap åk 7–9: välj poster som får plats i månadskassan, räkna ut räntan på ett lån och se hur hushåll, företag, bank och kommun hänger ihop.">
+<meta name="theme-color" content="#FBF7EF">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header id="hud">
+  <div id="hudVanster">
+    <span id="nivaText">Nivå 1</span>
+    <span class="stjarna" aria-hidden="true">⭐</span><span id="stjarnText" aria-label="stjärnor i denna nivå">0</span>
+  </div>
+  <div id="prickar" aria-hidden="true"></div>
+  <button id="ljud" type="button" aria-label="Stäng av ljudet" aria-pressed="true">🔊</button>
+</header>
+<div id="framsteg" aria-hidden="true"></div>
+
+<main id="spel" hidden>
+  <section id="fraga" aria-live="polite">
+    <div id="kassabok" hidden>
+      <div class="bokrad inkomst"><span>Inkomst</span><b id="inkomstTal">12 000 kr</b></div>
+      <div id="fastaRader"></div>
+      <div class="streck" aria-hidden="true"></div>
+    </div>
+    <div id="saldoRad"><span id="saldoEtikett">Kvar i kassan</span><b id="saldoTal">2 780 kr</b></div>
+    <p id="fragText">Välj två poster som får plats.</p>
+  </section>
+
+  <section id="kort" aria-label="svarskort"></section>
+
+  <div id="botten">
+    <svg id="kotten" viewBox="0 0 120 130" aria-hidden="true"></svg>
+    <div id="aterkoppling" aria-live="polite"></div>
+    <div id="visning" aria-live="polite"></div>
+  </div>
+</main>
+
+<section id="startskarm">
+  <div class="start-inner">
+    <svg id="kottenStart" viewBox="0 0 120 130" aria-hidden="true"></svg>
+    <h1>Hushållskassan</h1>
+    <p class="ingress">Du har en månadslön och en hög räkningar. Välj vad som får plats,
+      räkna ut vad ett lån kostar – och se vem som egentligen får pengarna.</p>
+    <ul class="sa-funkar">
+      <li>Nivå 1: tryck på de två poster som får plats i kassan.</li>
+      <li>Nivå 2–3: räkna ut räntan och tryck på svaret.</li>
+      <li>Nivå 4: hushåll, företag, bank och kommun – tryck på rätt svar.</li>
+      <li>Fel svar kostar ingenting. Du får en förklaring och provar igen.</li>
+    </ul>
+    <button id="play" type="button">Spela</button>
+    <details class="larare">
+      <summary>För lärare</summary>
+      <p><strong>Ämne och år:</strong> Samhällskunskap, åk 7–9. Fyra nivåer med fem uppgifter
+        var, cirka fem minuter per runda.</p>
+      <p><strong>Lgr22:</strong> SH.7-9.2.1 – ”Hur hushållens, företagens, bankernas och det
+        offentligas ekonomi hänger samman. Orsaker till förändringar i samhällsekonomin och
+        vilka effekter de kan få.” (Skolverket, centralt innehåll Samhällskunskap åk 7–9.)</p>
+      <p>Nivå 1 är en budget där exakt ett par poster ryms. Nivå 2 räknar ränta på ett år,
+        nivå 3 ränta över flera år och jämför lån, nivå 4 knyter ihop hushåll, företag, bank
+        och kommun. Alla belopp är hela kronor och kontrolleras av <code>verify.cjs</code>
+        oberoende av <code>generate.py</code>.</p>
+      <p>Ingen inloggning, ingen reklam, inga länkar ut, inga uppgifter om barn sparas.</p>
+    </details>
+  </div>
+</section>
+
+<div id="klart" hidden>
+  <div class="klart-inner">
+    <p id="klartStjarnor" class="klart-stjarnor">⭐</p>
+    <h2 id="klartTitel">Nivå 1 klar!</h2>
+    <p id="klartText"></p>
+    <button id="klartKnapp" type="button">Nästa nivå</button>
+    <button id="klartIgen" type="button" class="svag">Spela nivån igen</button>
+  </div>
+</div>
+
+<script src="ljud/lines.js"></script>
+<script src="ljud/rosten.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="https://www.skolappar.com/kotten.js" defer></script>
+</body>
+</html>
